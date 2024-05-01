@@ -124,7 +124,7 @@
                             <p class="title-name">达人头像</p>
                             <el-upload class="avatar-uploader" action="" :show-file-list="false"
                                 :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-                                <img v-if="imageUrlList.length" :src="imageUrlList" class="avatar" />
+                                <img v-if="imageUrlList.length > 0" :src="imageUrlList" class="avatar" />
                                 <el-icon v-else class="el-icon-plus avatar-uploader-icon">
                                     <Plus />
                                 </el-icon>
@@ -148,7 +148,7 @@
                         <div class="upload-item" v-for="(item, index) in 5" :key="index">
                             <el-upload class="avatar-uploader" action="" :show-file-list="false"
                                 :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-                                <img v-if="imageUrl" :src="imageUrl" class="avatar" />
+                                <img v-if="imageUrlList.length > 0" :src="imageUrlList" class="avatar" />
                                 <el-icon v-else class="el-icon-plus avatar-uploader-icon">
                                     <Plus />
                                 </el-icon>
@@ -162,7 +162,7 @@
                             <p class="lable">{{ item.lable }}</p>
                             <el-upload class="avatar-uploader" action="" :show-file-list="false"
                                 :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-                                <img v-if="imageUrl" :src="imageUrl" class="avatar" />
+                                <img v-if="imageUrlList.length > 0" :src="imageUrlList" class="avatar" />
                                 <el-icon v-else class="el-icon-plus avatar-uploader-icon">
                                     <Plus />
                                 </el-icon>
@@ -178,12 +178,12 @@
                         <li class="list-item" v-for="(item, index) in 16" :key="index">
                             <el-upload class="avatar-uploader" action="" :show-file-list="false"
                                 :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-                                <img v-if="imageUrl" :src="imageUrl" class="avatar" />
+                                <img v-if="imageUrlList.length > 0" :src="imageUrlList" class="avatar" />
                                 <el-icon v-else class="el-icon-plus avatar-uploader-icon">
                                     <Plus />
                                 </el-icon>
                             </el-upload>
-                            <p class="msg">达人名称</p>
+                            <el-input v-model="expertName" class="msg" />
                         </li>
                     </ul>
                 </div>
@@ -524,6 +524,7 @@ const options = [
     }
 ]
 let imageUrlList = ref([]);//达人头像
+let expertName =  ref('达人名称')
 let informationData = ref(['历史视频数', '最近拍摄', '返稿率', '周拍摄条数'])
 const photoList = [
     {
