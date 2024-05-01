@@ -1,11 +1,14 @@
 <template>
   <div>
-    <Home />
+    <!-- <Home /> -->
+    <!-- 达人信息 -->
+    <ExpertInformation/>
   </div>
 </template>
 
 <script setup>
-import Home from "./components/Home.vue";
+import Home from './views/Home/index.vue';
+import ExpertInformation from './views/ExpertInformation/index.vue'
 </script>
 
 <style>
@@ -16,12 +19,7 @@ import Home from "./components/Home.vue";
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  .el-dialog {
-    padding: 16px 0px !important;
-  }
-  .el-dialog__header {
-    margin-top: 0px !important;
-  }
+
   .el-upload-list {
     width: 100px;
   }
