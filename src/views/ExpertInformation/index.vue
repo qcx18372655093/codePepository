@@ -545,18 +545,13 @@ const photoList = [
  * @param {*} file
  * @return {*}
  */
-const handleAvatarSuccess = (res, file) => {
-    imageUrlList.value = URL.createObjectURL(file.raw)
-}
+const handleAvatarSuccess = (res, file) => {}
 /**
  * @description: 上传文件之前的钩子
  * @param {*} file
  * @return {*}
  */
-const beforeAvatarUpload = (file) => {
-    // const isJPG = file.type === 'image/jpeg'
-    // const isLt2M = file.size / 1024 / 1024 < 2
-}
+const beforeAvatarUpload = (file) => {}
 </script>
 
 

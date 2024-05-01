@@ -1,10 +1,10 @@
 <template>
   <div class="formList">
-    <el-form ref="form" :model="form" label-width="80px">
+    <el-form ref="form" :model="formList" label-width="80px">
       <el-form-item label="分类">
         <div class="selectValue">
           <el-select
-            v-model="form.classify"
+            v-model="formList.classify"
             placeholder="请选择"
             style="width: 180px"
           >
@@ -24,7 +24,7 @@
       <el-form-item label="lora名称">
         <div class="selectValue">
           <el-select
-            v-model="form.lora"
+            v-model="formList.lora"
             placeholder="请选择"
             style="width: 180px"
           >
@@ -42,12 +42,12 @@
         </div>
       </el-form-item>
       <el-form-item label="标题">
-        <el-input type="textarea" v-model="form.title" autosize></el-input>
+        <el-input type="textarea" v-model="formList.title" autosize></el-input>
       </el-form-item>
       <el-form-item label="描述">
         <el-input
           type="textarea"
-          v-model="form.remarks"
+          v-model="formList.remarks"
           :autosize="{ minRows: 2, maxRows: 3 }"
         ></el-input>
       </el-form-item>
@@ -59,14 +59,14 @@
       <el-form-item label="关键词">
         <el-input
           type="textarea"
-          v-model="form.keyword"
+          v-model="formList.keyword"
           :autosize="{ minRows: 4, maxRows: 4 }"
         ></el-input>
       </el-form-item>
       <el-form-item label="背景音">
         <div class="selectValue">
           <el-select
-            v-model="form.bgMusic"
+            v-model="formList.bgMusic"
             placeholder="请选择"
             style="width: 180px"
           >
@@ -86,7 +86,7 @@
       <el-form-item label="原关键词">
         <el-input
           type="textarea"
-          v-model="form.primaryKeyword"
+          v-model="formList.primaryKeyword"
           :disabled="true"
           :autosize="{ minRows: 4, maxRows: 4 }"
         ></el-input>
@@ -102,7 +102,7 @@
       <div class="dialogContent">
         <div class="contentSearch">
           <el-input
-            v-model="input"
+            v-model="inputValue"
             placeholder="添加商品链接，点击获取商品详情"
           ></el-input>
           <el-button type="primary">获取商品详情</el-button>
@@ -187,7 +187,7 @@ const bgMusicOptions = ref([
     label: "music3",
   },
 ]);
-let form = ref({
+let formList = ref({
   classify: "",
   lora: "",
   title: "",
@@ -196,6 +196,7 @@ let form = ref({
   bgMusic: "",
   primaryKeyword: "",
 });
+let inputValue = ref('')
 let channelOptions = ref(["渠道1", "渠道2", "渠道3", "渠道4", "渠道5"]);
 let outerVisible = ref(false);
 
